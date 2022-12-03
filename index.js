@@ -7,7 +7,7 @@ const playerselection = ()=>{
 }
 const round = (playerselection,computerplay)=>{
     
-        if(playerselection.toLowerCase()=="rock"){
+        if(playerselection.trim().toLowerCase()=="rock"){
             if(computerplay=="rock"){
                 return "draw";
             }
@@ -20,7 +20,7 @@ const round = (playerselection,computerplay)=>{
 
         }
 
-        else if(playerselection.toLowerCase()=="paper"){
+        else if(playerselection.trim().toLowerCase()=="paper"){
             if(computerplay=="paper"){               
                 return "draw";
             }
@@ -32,7 +32,7 @@ const round = (playerselection,computerplay)=>{
 
             }
         }
-        else if(playerselection.toLowerCase()=="scissors"){
+        else if(playerselection.trim().toLowerCase()=="scissors"){
             if(computerplay=="scissors"){           
                 return "draw";
             }
