@@ -3,48 +3,30 @@ const computerplay = ()=>{
     return options[ Math.floor(Math.random()*options.length)];
 }
 const playerselection = ()=>{
-    return prompt("choose your option : rock-paper-scissors");
+ const answer =prompt("choose your option : rock-paper-scissors").toLowerCase().trim();
+ if ( answer === "rock"|| answer === "paper" ||answer === "scissors") {
+    return answer;
+  } 
+  else {
+      console.log("invalid");
+       playerselection();
+  }
 }
 const round = (playerselection,computerplay)=>{
     
-        if(playerselection.trim().toLowerCase()=="rock"){
-            if(computerplay=="rock"){
-                return "draw";
-            }
-            else if(computerplay=="paper"){
-                return "lose";
-            }
-            else if (computerplay=="scissors"){                
-                return "win";
-            }
-
-        }
-
-        else if(playerselection.trim().toLowerCase()=="paper"){
-            if(computerplay=="paper"){               
-                return "draw";
-            }
-            else if(computerplay=="scissors"){                
-                return "lose";
-            }
-            else if (computerplay=="rock"){
-                return "win";
-
-            }
-        }
-        else if(playerselection.trim().toLowerCase()=="scissors"){
-            if(computerplay=="scissors"){           
-                return "draw";
-            }
-            else if(computerplay=="rock"){               
-                return "lose";
-            }
-            else if (computerplay=="paper"){               
-                return "win";
-            }
-        }    
+    if (playerselection === computerplay) {
+       return "draw";
+      } else if (playerselection === "rock" && computerplay=== "scissors") {
+        return "win";
+      } else if (playerselection === "paper" && computerplay === "rock") {
+        return "win";
+      } else if (playerselection === "scissors" && computerplay === "paper") {
+        return "win"
+      } else {
+        return "lose";
+      }
+    
     }
-
 
 let playerscore=0;
 let computerscore=0;
@@ -53,20 +35,23 @@ const game = ()=>{
     while (i<5){
      const result=round(playerselection(),computerplay());
         if (result=="win"){
-            console.log("won the round");
+            console.log("one the round");
             playerscore++;
-            i++;           
+            i++;
+           
         }
         else if (result=="lose")
         {
             console.log("lost the round");
             computerscore++;
-            i++;            
+            i++;
+            
         }
         else if (result=="draw")
         {
             console.log("draw");
-            i++;            
+            i++;
+            
         }
     }
 }
@@ -80,5 +65,5 @@ else if (playerscore<computerscore)
 }
 else 
 {
-  console.log("draw");
+  console.log("it is a draw");
 }
