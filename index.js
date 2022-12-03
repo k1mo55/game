@@ -8,7 +8,7 @@ const playerselection = ()=>{
     return answer;
   } 
   else {
-      console.log("invalid");
+      console.log("wrong input");
        playerselection();
   }
 }
